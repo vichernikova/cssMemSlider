@@ -142,3 +142,50 @@ input[name='slide'] {
 #img5:checked ~ .pagination .title-group .title-scroll {
     margin-left: -400%;
 }
+
+@media (max-width: 768px)  {
+	.slider-group {
+        height: 55%;
+    }
+	
+    .pagination {
+        align-items: center;
+        flex-direction: column;
+    }
+	
+    .title-group {
+        order: 2;
+        width: 100%;
+    }
+	
+    .title {
+		font-size: 1rem;
+		padding: .3rem;
+    }
+}
+
+@media (max-width: 320px)  {
+	.slider-group {
+        height: 45%;
+    }
+	
+	.control-dot {
+		width: 1rem;
+		height: 1rem;
+		border: .2rem solid orange;
+	}
+	
+	.control {
+		padding: .3rem;
+		margin: .1rem;
+	}
+	
+	.title-group {
+        width: 90%;
+    }
+	
+	.title {
+		font-size: .8rem;
+		margin-top: 1.5rem;
+	}
+}
