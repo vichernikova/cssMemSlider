@@ -1,0 +1,214 @@
+
+* {
+	box-sizing:border-box;
+}
+
+html {
+	font-size: 16px;
+}
+
+body {
+	background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+	background-size: 400% 400%;
+	animation: gradient 15s ease infinite;
+	height: 100vh;
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+.slider-wrapper {
+	display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 64rem;
+    margin: 0 auto;
+    height: 40rem;
+}
+
+.slider {
+	display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    overflow: hidden; 
+}
+
+.slider-group {
+    width: 500%;
+    display: flex;
+    overflow: hidden;
+}
+
+.slide {
+	display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 20%;
+    transition: all .5s ease;
+}
+
+.slide img {
+    max-width: 70%;
+    max-height: 80%;
+	border-radius: 1rem;
+}
+
+.pagination {
+    display: flex;
+    justify-content: space-between;
+}
+
+.title-group {
+    display: flex;
+    width: 500%;
+    overflow: hidden;
+    padding-left: 2rem;
+}
+
+.title {
+    width: 100%;
+    min-width: 100%;
+    display: flex;
+    align-items: center;
+    font-size: 1.2rem;
+    transition: all .6s ease;
+	font-weight:700;
+}
+
+.control-group {
+    display: flex;
+    justify-content: space-between;
+	margin: 0 1rem;
+}
+
+.control {
+    padding: .5rem;
+    margin: .2rem;
+    cursor: pointer;
+}
+
+.control-dot {
+    display: block;
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 50%;
+    box-sizing: border-box;
+    border: .3rem solid orange;
+    transition: all .5s ease;
+}
+
+.control:hover .control-dot {
+    background: orange;
+    transform: scale(1.2);
+}
+
+#img1:checked ~ .pagination .control-group .control .control-dot1,
+#img2:checked ~ .pagination .control-group .control .control-dot2,
+#img3:checked ~ .pagination .control-group .control .control-dot3,
+#img4:checked ~ .pagination .control-group .control .control-dot4,
+#img5:checked ~ .pagination .control-group .control .control-dot5 {
+    background: orange;
+}
+
+input[name='slide'] {
+    visibility: hidden;
+}
+
+#img1:checked ~ .slider-group .scroll {
+    margin-left: 0;
+}
+
+#img2:checked ~ .slider-group .scroll {
+    margin-left: -20%;
+}
+
+#img3:checked ~ .slider-group .scroll {
+    margin-left: -40%;
+}
+
+#img4:checked ~ .slider-group .scroll {
+    margin-left: -60%;
+}
+
+#img5:checked ~ .slider-group .scroll {
+    margin-left: -80%;
+}
+
+#img1:checked ~ .pagination .title-group .title-scroll {
+    margin-left: 0;
+}
+
+#img2:checked ~ .pagination .title-group .title-scroll {
+    margin-left: -100%;
+}
+
+#img3:checked ~ .pagination .title-group .title-scroll {
+    margin-left: -200%;
+}
+
+#img4:checked ~ .pagination .title-group .title-scroll {
+    margin-left: -300%;
+}
+
+#img5:checked ~ .pagination .title-group .title-scroll {
+    margin-left: -400%;
+}
+
+@media (max-width: 768px)  {
+	.slider-group {
+        height: 55%;
+    }
+	
+    .pagination {
+        align-items: center;
+        flex-direction: column;
+    }
+	
+    .title-group {
+        order: 2;
+        width: 100%;
+    }
+	
+    .title {
+		font-size: .9rem;
+		padding: .3rem;
+		margin-top:1rem;
+    }
+}
+
+@media (max-width: 320px)  {
+	.slider-group {
+        height: 45%;
+    }
+	
+	.control-dot {
+		width: 1rem;
+		height: 1rem;
+		border: .2rem solid orange;
+	}
+	
+	.control {
+		padding: .3rem;
+		margin: .1rem;
+	}
+	
+	.title-group {
+        width: 90%;
+    }
+	
+	.title {
+		font-size: .8rem;
+		margin-top: 1.5rem;
+		font-weight:500;
+	}
+}
